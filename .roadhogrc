@@ -1,0 +1,49 @@
+{
+  "entry": "src/index.js",
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+         ["import", { "libraryName": "antd", "style": "css" }],
+         ["module-resolver", {
+           "root": ["./src"],
+           "alias": {
+             "~": "./src",
+             "components": "./src/components",
+             "models": "./src/models",
+             "routes": "./src/routes",
+             "services": "./src/services",
+             "utils": "./src/utils",
+             "public": "./public"
+           }
+         }]
+      ],
+      "proxy": {
+        "/api": {
+          "target": "http://dwe.data-whisper.com:7080/",
+          "changeOrigin": true,
+          "pathRewrite": { "^/api" : "/api" }
+        }
+      }
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": "css" }],
+        ["module-resolver", {
+          "root": ["./src"],
+          "alias": {
+            "~": "./src",
+            "components": "./src/components",
+            "models": "./src/models",
+            "routes": "./src/routes",
+            "services": "./src/services",
+            "utils": "./src/utils",
+            "public": "./public"
+          }
+        }]
+      ]
+    }
+  }
+}
