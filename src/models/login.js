@@ -1,5 +1,6 @@
 import { login } from 'services/login';
 import { dealError } from 'utils/error';
+import { routerRedux } from 'dva/router';
 
 export default {
 
@@ -23,6 +24,7 @@ export default {
             type: 'saveUserInfo',
             payload: body,
           });
+          yield put(routerRedux.push('/search-accounts'));
         }
       } catch (err) {
         dealError(err);

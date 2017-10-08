@@ -14,7 +14,7 @@ function validateToken(value) {
       errorMsg: '请输入用户名',
     };
   }
-  if (!isUserName(value) && !isUserName(value) && !isEmail(value)) {
+  if (!isUserName(value) && !isPhone(value) && !isEmail(value)) {
     return {
       validateStatus: 'error',
       errorMsg: '请输入正确的用户名',
